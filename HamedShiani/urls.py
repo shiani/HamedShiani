@@ -21,7 +21,9 @@ from HamedShiani import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include("project.urls", namespace='project'))
+    path('', include("project.urls", namespace='project')),
+    path('', include("about_me.urls", namespace='about_me')),
+
 ]
 
 if settings.DEBUG:
