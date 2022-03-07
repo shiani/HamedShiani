@@ -27,3 +27,19 @@ class ProjectSingle(generics.RetrieveAPIView):
             return project
         except Project.DoesNotExist:
             raise Http404()
+
+
+class ToolsList(generics.ListAPIView):
+    serializer_class = ProjectListSerializer
+    permission_classes = (AllowAny,)
+
+    def get_queryset(self):
+        return Project.objects.filter(is_active=True, tools__slug=self.kwargs.get('slug'))
+
+
+class CategoryList(generics.ListAPIView):
+    serializer_class = ProjectListSerializer
+    permission_classes = (AllowAny,)
+
+    def get_queryset(self):
+        return Project.objects.filter(is_active=True, category__slug=self.kwargs.get('slug'))
