@@ -43,6 +43,7 @@ class Tool(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=255)
+    slug = models.SlugField(null=True, blank=True)
     create_date = models.DateField(auto_now_add=True)
     client_name = models.CharField(max_length=255, blank=True, null=True)
     client_services = models.CharField(max_length=511, blank=True, null=True)
@@ -56,6 +57,12 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        return super().save(*args, **kwargs)
 
 
 class ProjectImage(models.Model):

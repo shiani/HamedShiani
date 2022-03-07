@@ -6,6 +6,7 @@ from .models import Project, Tool, ProjectImage, Category
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('title', 'create_date', 'client_name', 'is_active')
     list_editable = ('is_active',)
+    prepopulated_fields = {'slug': ('title',)}
 
 
 admin.site.register(Project, ProjectAdmin)
