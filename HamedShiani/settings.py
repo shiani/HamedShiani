@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # my apps
     'project',
     'about_me',
+    'contact',
 ]
 
 REST_FRAMEWORK = {
