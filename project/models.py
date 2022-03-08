@@ -4,6 +4,10 @@ from django.urls import reverse
 
 
 def upload_news_image_path(instance, filename):
+    return f"about_me/{filename}"
+
+
+def upload_project_image_path(instance, filename):
     return f"project/{filename}"
 
 
@@ -66,7 +70,7 @@ class Project(models.Model):
 
 
 class ProjectImage(models.Model):
-    image = models.ImageField(upload_to=upload_news_image_path)
+    image = models.ImageField(upload_to=upload_project_image_path)
     project = models.ForeignKey(to=Project, on_delete=models.CASCADE, related_name='project_image')
 
     def __str__(self):

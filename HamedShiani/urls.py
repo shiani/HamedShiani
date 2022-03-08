@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include("about_me.urls", namespace='about_me')),
     path('', include("contact.urls", namespace='contact')),
     path('', include("hire_me.urls", namespace='hire_me')),
+    path('', include("resume.urls", namespace='resume')),
 
 ]
 

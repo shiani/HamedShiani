@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'about_me',
     'contact',
     'hire_me',
+    'resume',
 ]
 
 REST_FRAMEWORK = {

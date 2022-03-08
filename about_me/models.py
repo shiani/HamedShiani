@@ -2,11 +2,15 @@ from django.db import models
 
 
 def upload_news_image_path(instance, filename):
-    return f"about/{filename}"
+    return f"about_me/{filename}"
+
+
+def upload_about_me_image_path(instance, filename):
+    return f"about_me/{filename}"
 
 
 class AboutMe(models.Model):
-    image = models.ImageField(upload_to=upload_news_image_path)
+    image = models.ImageField(upload_to=upload_about_me_image_path)
     description = models.TextField()
     years_of_experience = models.SmallIntegerField()
     projects_completed = models.SmallIntegerField()
